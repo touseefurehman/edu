@@ -1,18 +1,6 @@
 'use client';
 import { useState } from 'react';
 
-// Add this function for static generation
-export async function generateStaticParams() {
-  // Return the lesson IDs you want to pre-generate
-  return [
-    { id: '1' },
-    { id: '2' }, 
-    { id: '3' },
-    { id: '4' },
-    { id: '5' }
-  ];
-}
-
 const mockLesson = {
   id: '1',
   title: 'Introduction to Algebra',

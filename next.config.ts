@@ -1,11 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Remove output: 'export' to enable SSR
   trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
 };
 
 export default nextConfig;
