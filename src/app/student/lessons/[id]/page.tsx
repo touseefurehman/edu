@@ -1,6 +1,17 @@
 'use client';
 import { useState } from 'react';
-import { useParams } from 'next/navigation';
+
+// Add this function for static generation
+export async function generateStaticParams() {
+  // Return the lesson IDs you want to pre-generate
+  return [
+    { id: '1' },
+    { id: '2' }, 
+    { id: '3' },
+    { id: '4' },
+    { id: '5' }
+  ];
+}
 
 const mockLesson = {
   id: '1',
@@ -11,14 +22,12 @@ const mockLesson = {
   createdAt: '2024-01-15'
 };
 
-export default function LessonDetail() {
-  const params = useParams();
+export default function LessonDetail({ params }: { params: { id: string } }) {
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
 
   const handleAskAI = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock AI response for now
     setAnswer(`This is a mock AI response about "${question}". In a real implementation, this would connect to GPT API. Lesson ID: ${params.id}`);
     setQuestion('');
   };
